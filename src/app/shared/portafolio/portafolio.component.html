@@ -1,0 +1,42 @@
+<section class="site-section" id="section-portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="section-heading text-center col-md-12">
+                <h2>Featured <strong>Portfolio</strong></h2>
+            </div>
+        </div>
+        <div class="filters">
+            <ul>
+                <li (click)="filter('all')" [class.active]="currentFilter === 'all'">All</li>
+                <li (click)="filter('packaging')" [class.active]="currentFilter === 'packaging'">Packaging</li>
+                <li (click)="filter('mockup')" [class.active]="currentFilter === 'mockup'">Mockup</li>
+                <li (click)="filter('typography')" [class.active]="currentFilter === 'typography'">Typography</li>
+                <li (click)="filter('photography')" [class.active]="currentFilter === 'photography'">Photography</li>
+            </ul>
+        </div>
+
+        <div class="filters-content">
+            <div class="row grid">
+                <div *ngFor="let item of filteredItems" class="single-portfolio col-sm-4" [ngClass]="item.categories">
+                    <div class="relative">
+                        <div class="thumb">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="image img-fluid" [src]="item.image" alt="">
+                        </div>
+                        <a [href]="item.image" class="img-pop-up">  
+                            <div class="middle">
+                                <div class="text align-self-center d-flex">
+                                    <img [src]="item.previewImage" alt="">
+                                </div>
+                            </div>
+                        </a>                                
+                    </div> 
+                    <div class="p-inner">
+                        <h4>{{ item.title }}</h4>
+                        <div class="cat">{{ item.category }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
